@@ -3,7 +3,7 @@ export DATA_DIR=$CURRENT_DIR/data
 
 python bert_qa.py \
   --model_type bert \
-  --model_name_or_path ./mc_base_base \
+  --model_name_or_path ./medbert-base-chinese \
   --do_train \
   --do_eval \
   --do_lower_case \

@@ -127,8 +127,8 @@ def read_squad_examples(input_file, is_training, version_2_with_negative):
             char_to_word_offset = []
             prev_is_whitespace = True
             for c in paragraph_text:
-                if is_whitespace(c):
-                    continue
+                # if is_whitespace(c):
+                #     continue
                 doc_tokens.append(c)
                 char_to_word_offset.append(len(doc_tokens) - 1)
 
@@ -165,14 +165,15 @@ def read_squad_examples(input_file, is_training, version_2_with_negative):
                     #
                     # Note that this means for training mode, every example is NOT
                     # guaranteed to be preserved.
-                    actual_text = "".join(
-                        doc_tokens[start_position:(end_position + 1)])
-                    cleaned_answer_text = "".join(
-                        whitespace_tokenize(orig_answer_text))
-                    if actual_text.find(cleaned_answer_text) == -1:
-                        logger.warning("样本错误: '%s' vs. '%s'", actual_text,
-                                       cleaned_answer_text)
-                        continue
+
+                    # actual_text = "".join(
+                    #     doc_tokens[start_position:(end_position + 1)])
+                    # cleaned_answer_text = "".join(
+                    #     whitespace_tokenize(orig_answer_text))
+                    # if actual_text.find(cleaned_answer_text) == -1:
+                    #     logger.warning("样本错误: '%s' vs. '%s'", actual_text,
+                    #                    cleaned_answer_text)
+                    #     continue
 
                 example = SquadExample(
                     qas_id=qas_id,

@@ -242,7 +242,7 @@ device = torch.device(
 args.device = device
 tokenizer = BertTokenizer.from_pretrained(
     'bert-base-chinese', do_lower_case=False)
-config = BertConfig.from_pretrained('./mc_bert_base')
+config = BertConfig.from_pretrained('./medbert-base-chinese/config.json')
 model = BertForQuestionAnswering(config)
 model_state_dict = args.state_dict
 model.load_state_dict(torch.load(model_state_dict))
